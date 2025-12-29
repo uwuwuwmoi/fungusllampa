@@ -1,1 +1,246 @@
-hola
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cepas y Genética - MAGIK</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Nosotros</a></li>
+        <li><a href="Dosis.html">Dosis</a></li>
+        <li><a href="chocohongos.html">Chocohongos</a></li>
+        <li><a href="cepas.html" class="active">Cepas</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="cepas-bg" class="full-screen-section">
+        <div class="content-wrapper">
+          <header class="section-header">
+            <h2 class="category-title">Banco de Genéticas</h2>
+            <div class="description-top">
+              <p>
+                Genéticas aisladas disponibles en Cultura Líquida, Grano (Spawn)
+                o Kit Completo.
+              </p>
+            </div>
+          </header>
+
+          <div class="product-grid-4col">
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="cepas"
+              data-name="Golden Teacher"
+              data-price="S/.70"
+              data-img="https://i.ibb.co/q3gk4rT8/7.png"
+              data-desc="La maestra dorada. Cepa clásica, resistente y de fácil cultivo. Ideal para principiantes por su micelio agresivo."
+            >
+              <div class="img-container">
+                <img
+                  src="https://i.ibb.co/q3gk4rT8/7.png"
+                  alt="Golden Teacher"
+                />
+              </div>
+              <div class="info-box">
+                <h3>Golden Teacher</h3>
+                <p class="price">Desde S/.70</p>
+              </div>
+            </article>
+
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="cepas"
+              data-name="B+ (Be Positive)"
+              data-price="S/.70"
+              data-img="https://i.ibb.co/ZRPrQFkZ/1.png"
+              data-desc="Famosa por su gran tamaño y versatilidad. Soporta rangos de temperatura más amplios que otras cubensis."
+            >
+              <div class="img-container">
+                <img src="https://i.ibb.co/ZRPrQFkZ/1.png" alt="B+" />
+              </div>
+              <div class="info-box">
+                <h3>B+</h3>
+                <p class="price">Desde S/.70</p>
+              </div>
+            </article>
+
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="cepas"
+              data-name="Melmak TP"
+              data-price="S/.90"
+              data-img="https://i.ibb.co/N4q8w2M/2.png"
+              data-desc="Una mutación del Penis Envy. Crecimiento lento pero potencia extremadamente alta. Frutos densos y exóticos."
+            >
+              <div class="img-container">
+                <img src="https://i.ibb.co/N4q8w2M/2.png" alt="Melmak" />
+              </div>
+              <div class="info-box">
+                <h3>Melmak TP</h3>
+                <p class="price">Desde S/.90</p>
+              </div>
+            </article>
+
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="cepas"
+              data-name="Jack Frost"
+              data-price="S/.90"
+              data-img="https://i.ibb.co/vvQfbpKW/3.png"
+              data-desc="Híbrido albino (TAT x APQE). Destaca por sus branquias azules al madurar y su aspecto congelado. Potencia visual."
+            >
+              <div class="img-container">
+                <img src="https://i.ibb.co/vvQfbpKW/3.png" alt="Jack Frost" />
+              </div>
+              <div class="info-box">
+                <h3>Jack Frost</h3>
+                <p class="price">Desde S/.90</p>
+              </div>
+            </article>
+
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="cepas"
+              data-name="Mazatapec"
+              data-price="S/.70"
+              data-img="https://i.ibb.co/DfRkgnmh/waaa-1.png"
+              data-desc="Genética mexicana ancestral. Muy espiritual y con menos carga corporal. Crecimiento constante."
+            >
+              <div class="img-container">
+                <img
+                  src="https://i.ibb.co/DfRkgnmh/waaa-1.png"
+                  alt="Mazatapec"
+                />
+              </div>
+              <div class="info-box">
+                <h3>Mazatapec</h3>
+                <p class="price">Desde S/.70</p>
+              </div>
+            </article>
+
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="cepas"
+              data-name="McKennaii"
+              data-price="S/.70"
+              data-img="https://i.ibb.co/LzTZHBY1/5.png"
+              data-desc="Nombrada en honor a Terence McKenna. Conocida por ser una de las cubensis estándar más potentes."
+            >
+              <div class="img-container">
+                <img src="https://i.ibb.co/LzTZHBY1/5.png" alt="McKennaii" />
+              </div>
+              <div class="info-box">
+                <h3>McKennaii</h3>
+                <p class="price">Desde S/.70</p>
+              </div>
+            </article>
+
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="cepas"
+              data-name="Albino A+"
+              data-price="S/.80"
+              data-img="https://i.ibb.co/mMchzrD/4.png"
+              data-desc="Una mutación leucística de la A+. Hermosos frutos pálidos que adquieren tonos azulados intensos."
+            >
+              <div class="img-container">
+                <img src="https://i.ibb.co/mMchzrD/4.png" alt="Albino A+" />
+              </div>
+              <div class="info-box">
+                <h3>Albino A+</h3>
+                <p class="price">Desde S/.80</p>
+              </div>
+            </article>
+
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="cepas"
+              data-name="Natalensis"
+              data-price="S/.100"
+              data-img="https://i.ibb.co/8L3LtvPd/6.png"
+              data-desc="Especie distinta a Cubensis. Micelio ultra agresivo y efectos muy claros, eufóricos y sin pesadez corporal."
+            >
+              <div class="img-container">
+                <img src="https://i.ibb.co/8L3LtvPd/6.png" alt="Natalensis" />
+              </div>
+              <div class="info-box">
+                <h3>P. Natalensis</h3>
+                <p class="price">Desde S/.100</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+
+        <div class="modal-body">
+          <div class="modal-img-wrapper">
+            <img id="modal-img" src="" alt="Producto" />
+          </div>
+
+          <div class="modal-details">
+            <h2 id="modal-title">Nombre del Producto</h2>
+            <p id="modal-price" class="modal-price">S/.00</p>
+            <div id="modal-desc" class="modal-description"></div>
+
+            <div class="modal-selectors">
+              <label id="selector-label">Opciones:</label>
+              <select id="variant-select"></select>
+            </div>
+
+            <button class="add-cart-btn">Añadir al Carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </div>
+
+    <div id="cartModal" class="cart-modal">
+      <div class="cart-content">
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+        <h2>Tu Pedido MAGIK</h2>
+        <div id="cart-items" class="cart-items-container">
+          <p class="empty-msg">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-footer">
+          <div class="total-row">
+            <span>Total Aprox:</span>
+            <span id="cart-total">S/.0.00</span>
+          </div>
+          <button class="checkout-btn" onclick="sendToWhatsapp()">
+            <span class="btn-icon">📱</span> Pedir por WhatsApp
+          </button>
+          <button class="clear-btn" onclick="clearCart()">
+            Vaciar Carrito
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
