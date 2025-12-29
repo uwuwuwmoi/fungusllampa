@@ -35,6 +35,19 @@ body {
   font-weight: 500;
   text-transform: uppercase;
   font-size: 0.9rem;
+  /* Adds a smooth fade effect when hovering */
+  transition: color 0.3s ease; 
+}
+
+/* This is the new hover effect */
+.nav-links a:hover {
+  color: #d4af37; /* Matches your 'Add to Cart' gold button */
+}
+
+/* Optional: Styles the link of the page you are currently on */
+.nav-links a.active {
+  color: #d4af37;
+  border-bottom: 1px solid #d4af37; /* Adds a small underline to the active page */
 }
 
 /* --- SECCIONES FULL SCREEN --- */
