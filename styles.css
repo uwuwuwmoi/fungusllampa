@@ -20,7 +20,7 @@ body {
   top: 0;
   z-index: 1000;
   padding: 15px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para separar del contenido */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Sombra para separar del contenido */
 }
 
 .nav-links {
@@ -158,18 +158,10 @@ body {
   display: block;
 }
 
-.zoom-in img {
-  transform: scale(1.1);
-}
-.zoom-out img {
-  transform: scale(0.9);
-}
-.img-container:hover img {
-  transform: scale(1.15);
-}
-.zoom-out:hover img {
-  transform: scale(0.95);
-}
+.zoom-in img { transform: scale(1.1); }
+.zoom-out img { transform: scale(0.9); }
+.img-container:hover img { transform: scale(1.15); }
+.zoom-out:hover img { transform: scale(0.95); }
 
 /* --- CAJA DE TEXTO OSCURA (TARJETAS) --- */
 .info-box {
@@ -195,9 +187,7 @@ body {
   font-weight: 300;
 }
 
-.visual-divider {
-  height: 50px;
-}
+.visual-divider { height: 50px; }
 
 /* --- SECCIÓN NOSOTROS (FUNGUSLLAMPA) - CORREGIDO --- */
 
@@ -216,17 +206,14 @@ body {
   margin-bottom: 0; /* Eliminado margen inferior excesivo */
 }
 
-.hero-content {
-  text-align: center;
-  padding: 20px;
-}
+.hero-content { text-align: center; padding: 20px; }
 
 .hero-title {
   font-family: "Playfair Display", serif;
   font-size: 4rem;
   letter-spacing: 2px;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
 }
 
 .hero-subtitle {
@@ -245,7 +232,7 @@ body {
 }
 
 .story-row {
-  display: flex; /* Activa el layout horizontal */
+  display: flex;       /* Activa el layout horizontal */
   flex-direction: row; /* Asegura que sea fila, no columna */
   align-items: center; /* Centra verticalmente texto e imagen */
   justify-content: space-between;
@@ -291,10 +278,7 @@ body {
   text-align: justify; /* Justificado elegante */
 }
 
-.story-text strong {
-  color: #fff;
-  font-weight: bold;
-}
+.story-text strong { color: #fff; font-weight: bold; }
 
 /* Imagen de Historia */
 .story-image {
@@ -303,7 +287,7 @@ body {
   width: 100%; /* Asegura que llene su contenedor flexible */
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   border: 1px solid #333;
   background-color: #111; /* Fondo por si la imagen falla */
 }
@@ -348,14 +332,8 @@ body {
 }
 
 @keyframes modalFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .close-btn {
@@ -370,9 +348,7 @@ body {
   transition: color 0.3s;
 }
 
-.close-btn:hover {
-  color: #fff;
-}
+.close-btn:hover { color: #fff; }
 
 .modal-body {
   display: flex;
@@ -426,9 +402,7 @@ body {
   line-height: 1.6;
 }
 
-.modal-selectors {
-  margin-bottom: 25px;
-}
+.modal-selectors { margin-bottom: 25px; }
 
 .modal-selectors label {
   display: block;
@@ -460,9 +434,7 @@ body {
   transition: background 0.3s;
 }
 
-.add-cart-btn:hover {
-  background-color: #fff;
-}
+.add-cart-btn:hover { background-color: #fff; }
 
 /* --- CARRITO FLOTANTE --- */
 .cart-icon {
@@ -484,9 +456,7 @@ body {
   transition: transform 0.2s;
 }
 
-.cart-icon:hover {
-  transform: scale(1.1);
-}
+.cart-icon:hover { transform: scale(1.1); }
 
 #cart-count {
   position: absolute;
@@ -526,20 +496,11 @@ body {
 }
 
 @keyframes slideIn {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }
 
-.close-cart {
-  align-self: flex-end;
-  font-size: 28px;
-  cursor: pointer;
-  color: #333;
-}
+.close-cart { align-self: flex-end; font-size: 28px; cursor: pointer; color: #333; }
 
 .cart-items-container {
   flex-grow: 1;
@@ -556,113 +517,48 @@ body {
   border-bottom: 1px solid #eee;
 }
 
-.item-info h4 {
-  margin: 0;
-  font-size: 16px;
-}
-.item-info span {
-  font-size: 12px;
-  color: #666;
-}
-.remove-item {
-  color: red;
-  cursor: pointer;
-  font-size: 1.2rem;
-  margin-left: 10px;
-}
+.item-info h4 { margin: 0; font-size: 16px; }
+.item-info span { font-size: 12px; color: #666; }
+.remove-item { color: red; cursor: pointer; font-size: 1.2rem; margin-left: 10px; }
 
-.cart-footer {
-  margin-top: 20px;
-  border-top: 2px solid #333;
-  padding-top: 10px;
-}
-.total-row {
-  display: flex;
-  justify-content: space-between;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
+.cart-footer { margin-top: 20px; border-top: 2px solid #333; padding-top: 10px; }
+.total-row { display: flex; justify-content: space-between; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
 
 .checkout-btn {
-  width: 100%;
-  padding: 15px;
-  background-color: #25d366;
-  color: white;
-  border: none;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  width: 100%; padding: 15px; background-color: #25d366; color: white; border: none; font-size: 18px; font-weight: bold; cursor: pointer; border-radius: 5px; margin-bottom: 10px;
 }
-.checkout-btn:hover {
-  background-color: #128c7e;
-}
+.checkout-btn:hover { background-color: #128c7e; }
 
-.clear-btn {
-  width: 100%;
-  padding: 10px;
-  background: transparent;
-  border: 1px solid #ccc;
-  color: #666;
-  cursor: pointer;
-}
+.clear-btn { width: 100%; padding: 10px; background: transparent; border: 1px solid #ccc; color: #666; cursor: pointer; }
 
 /* --- RESPONSIVE GENERAL (TABLETS Y MOVILES) --- */
 @media (max-width: 900px) {
   /* Textos grandes */
-  .category-title {
-    font-size: 3rem;
-  }
-  .hero-title {
-    font-size: 2.5rem;
-  }
-  .description-top {
-    font-size: 1rem;
-    margin-bottom: 25px;
-  }
+  .category-title { font-size: 3rem; }
+  .hero-title { font-size: 2.5rem; }
+  .description-top { font-size: 1rem; margin-bottom: 25px; }
 
   /* Grids de productos */
-  .product-grid-4col,
-  .product-grid-3col {
+  .product-grid-4col, .product-grid-3col {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
   /* MODAL */
-  .modal-content {
-    padding: 15px;
-  }
-  .modal-body {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  .modal-img-wrapper {
-    height: 200px;
-  }
-  .modal-details {
-    padding: 20px;
-  }
-  #modal-title {
-    font-size: 1.5rem;
-  }
+  .modal-content { padding: 15px; }
+  .modal-body { flex-direction: column; align-items: stretch; }
+  .modal-img-wrapper { height: 200px; }
+  .modal-details { padding: 20px; }
+  #modal-title { font-size: 1.5rem; }
 
   /* HISTORIA (ZIG-ZAG SE VUELVE COLUMNA) */
-  .story-row,
-  .story-row.reverse {
+  .story-row, .story-row.reverse {
     flex-direction: column; /* Apilar verticalmente */
     gap: 30px;
     margin-bottom: 60px;
   }
-
-  .story-image {
-    height: 250px;
-  }
-  .story-text h2 {
-    text-align: center;
-  }
-  .story-text h2::after {
-    margin: 10px auto;
-  }
+  
+  .story-image { height: 250px; }
+  .story-text h2 { text-align: center; }
+  .story-text h2::after { margin: 10px auto; }
 }
