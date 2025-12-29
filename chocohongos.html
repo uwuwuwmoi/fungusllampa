@@ -1,1 +1,148 @@
-hola
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chocohongos - Dosis MAGIK</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="index.html">Nosotros</a></li>
+        <li><a href="Dosis.html">Dosis</a></li>
+        <li><a href="chocohongos.html" class="active">Chocohongos</a></li>
+        <li><a href="cepas.html">Cepas</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="chocohongos-bg" class="full-screen-section">
+        <div class="content-wrapper">
+          <header class="section-header">
+            <h2 class="category-title">Chocohongos</h2>
+            <div class="description-top">
+              <p>Cacao orgánico al 70% y genética psilocibina.</p>
+            </div>
+          </header>
+
+          <div class="product-grid-3col">
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="chocohongos"
+              data-name="Bombón Ritual 1.5g"
+              data-price="S/.60"
+              data-img="https://i.ibb.co/DfRkgnmh/waaa-1.png"
+              data-desc="Delicioso bombón de chocolate oscuro al 70%. Dosis ideal para una velada creativa o introspección ligera."
+            >
+              <div class="img-container">
+                <img src="https://i.ibb.co/DfRkgnmh/waaa-1.png" alt="Bombon" />
+              </div>
+              <div class="info-box">
+                <h3>Bombón Ritual 1.5g</h3>
+                <p class="price">Desde S/.60</p>
+              </div>
+            </article>
+
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="chocohongos"
+              data-name="Barra Astral 3g"
+              data-price="S/.90"
+              data-img="https://i.ibb.co/ZRPrQFkZ/1.png"
+              data-desc="Barra completa para un viaje profundo. Cacao amazónico que potencia el efecto de la psilocibina."
+            >
+              <div class="img-container">
+                <img src="https://i.ibb.co/ZRPrQFkZ/1.png" alt="Barra Astral" />
+              </div>
+              <div class="info-box">
+                <h3>Barra Astral 3g</h3>
+                <p class="price">Desde S/.90</p>
+              </div>
+            </article>
+
+            <article
+              class="product-item"
+              onclick="openModal(this)"
+              data-category="chocohongos"
+              data-name="Pack Ceremonia 6g"
+              data-price="S/.160"
+              data-img="https://i.ibb.co/vvQfbpKW/3.png"
+              data-desc="Dos barras de alta potencia. Perfecto para compartir en pareja o guardar para futuras sesiones."
+            >
+              <div class="img-container">
+                <img
+                  src="https://i.ibb.co/vvQfbpKW/3.png"
+                  alt="Pack Ceremonia"
+                />
+              </div>
+              <div class="info-box">
+                <h3>Pack Ceremonia 6g</h3>
+                <p class="price">Desde S/.160</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="productModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <div class="modal-body">
+          <div class="modal-img-wrapper">
+            <img id="modal-img" src="" alt="Producto" />
+          </div>
+          <div class="modal-details">
+            <h2 id="modal-title">Nombre</h2>
+            <p id="modal-price" class="modal-price">S/.00</p>
+            <div id="modal-desc" class="modal-description"></div>
+
+            <div class="modal-selectors">
+              <label id="selector-label">Opción:</label>
+              <select id="variant-select"></select>
+            </div>
+
+            <button class="add-cart-btn">Añadir al Carrito</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-icon" onclick="toggleCart()">
+      🛒 <span id="cart-count">0</span>
+    </div>
+
+    <div id="cartModal" class="cart-modal">
+      <div class="cart-content">
+        <span class="close-cart" onclick="toggleCart()">&times;</span>
+        <h2>Tu Pedido MAGIK</h2>
+        <div id="cart-items" class="cart-items-container">
+          <p class="empty-msg">Tu carrito está vacío.</p>
+        </div>
+        <div class="cart-footer">
+          <div class="total-row">
+            <span>Total:</span>
+            <span id="cart-total">S/.0.00</span>
+          </div>
+          <button class="checkout-btn" onclick="sendToWhatsapp()">
+            <span class="btn-icon">📱</span> Pedir por WhatsApp
+          </button>
+          <button class="clear-btn" onclick="clearCart()">
+            Vaciar Carrito
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
