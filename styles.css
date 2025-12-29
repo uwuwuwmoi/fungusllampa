@@ -31,23 +31,22 @@ body {
 
 .nav-links a {
   color: #fff;
-  text-decoration: none;
+  text-decoration: none; /* Ensures no default underlines */
   font-weight: 500;
   text-transform: uppercase;
   font-size: 0.9rem;
-  /* Adds a smooth fade effect when hovering */
-  transition: color 0.3s ease; 
+  transition: color 0.3s ease;
 }
 
-/* This is the new hover effect */
+/* Hover state: Changes color when mouse is over */
 .nav-links a:hover {
-  color: #d4af37; /* Matches your 'Add to Cart' gold button */
+  color: #d4af37;
 }
 
-/* Optional: Styles the link of the page you are currently on */
+/* Active state: Keeps the current page link gold without the underline */
 .nav-links a.active {
   color: #d4af37;
-  border-bottom: 1px solid #d4af37; /* Adds a small underline to the active page */
+  border-bottom: none; 
 }
 
 /* --- SECCIONES FULL SCREEN --- */
