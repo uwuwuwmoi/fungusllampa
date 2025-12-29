@@ -9,18 +9,18 @@ body {
   background-color: #1a1a1a;
   color: #fff;
   font-family: "Roboto", sans-serif;
-  overflow-x: hidden; /* Evita scroll horizontal no deseado */
+  overflow-x: hidden;
 }
 
-/* --- NAVBAR (BARRA DE NAVEGACIÓN) --- */
+/* --- NAVBAR --- */
 .navbar {
-  background-color: #000000; /* Color sólido (Negro Puro) para máxima legibilidad */
+  background-color: #000000; /* Negro sólido para legibilidad */
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
   padding: 15px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5); /* Sombra para separar del contenido */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .nav-links {
@@ -44,13 +44,12 @@ body {
 .nav-links a:hover {
   color: #d4af37;
 }
-
 .nav-links a.active {
   color: #d4af37;
   border-bottom: none;
 }
 
-/* --- SECCIONES FULL SCREEN (GENERAL) --- */
+/* --- SECCIONES FULL SCREEN --- */
 .full-screen-section {
   min-height: 100vh;
   width: 100%;
@@ -64,7 +63,6 @@ body {
   padding: 100px 20px;
 }
 
-/* FONDOS ESPECÍFICOS */
 #clasicas {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("https://i.ibb.co/3mcJYKYn/Copia-de-Las-mejores-setas.png");
@@ -85,12 +83,12 @@ body {
     url("https://i.ibb.co/3mcJYKYn/Copia-de-Las-mejores-setas.png");
 }
 
-/* --- CONTENEDOR CENTRAL (SOLUCIÓN AL DESCENTRADO) --- */
+/* --- CONTENEDOR CENTRAL --- */
 .content-wrapper {
   max-width: 1200px;
   width: 100%;
-  margin: 0 auto; /* ESTO CENTRA EL BLOQUE EN LA PANTALLA */
-  padding: 0 20px; /* Margen de seguridad en los lados */
+  margin: 0 auto;
+  padding: 0 20px;
   text-align: center;
 }
 
@@ -130,13 +128,13 @@ body {
   margin: 0 auto;
 }
 
-/* --- TARJETAS DE PRODUCTO --- */
+/* --- TARJETAS --- */
 .product-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
-  width: 100%; /* Asegura que ocupe su celda del grid */
+  width: 100%;
 }
 
 .img-container {
@@ -147,7 +145,7 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   margin-bottom: -5px;
   z-index: 1;
-  background-color: #000; /* Fondo negro por si la imagen no carga */
+  background-color: #000;
 }
 
 .img-container img {
@@ -158,12 +156,19 @@ body {
   display: block;
 }
 
-.zoom-in img { transform: scale(1.1); }
-.zoom-out img { transform: scale(0.9); }
-.img-container:hover img { transform: scale(1.15); }
-.zoom-out:hover img { transform: scale(0.95); }
+.zoom-in img {
+  transform: scale(1.1);
+}
+.zoom-out img {
+  transform: scale(0.9);
+}
+.img-container:hover img {
+  transform: scale(1.15);
+}
+.zoom-out:hover img {
+  transform: scale(0.95);
+}
 
-/* --- CAJA DE TEXTO OSCURA (TARJETAS) --- */
 .info-box {
   background-color: #383431;
   width: 100%;
@@ -186,12 +191,12 @@ body {
   color: #fff;
   font-weight: 300;
 }
+.visual-divider {
+  height: 50px;
+}
 
-.visual-divider { height: 50px; }
+/* --- SECCIÓN NOSOTROS (FUNGUSLLAMPA) --- */
 
-/* --- SECCIÓN NOSOTROS (FUNGUSLLAMPA) - CORREGIDO --- */
-
-/* Portada Hero */
 .about-hero {
   height: 60vh;
   width: 100%;
@@ -203,17 +208,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0; /* Eliminado margen inferior excesivo */
+  margin-bottom: 0;
 }
 
-.hero-content { text-align: center; padding: 20px; }
+.hero-content {
+  text-align: center;
+  padding: 20px;
+}
 
 .hero-title {
   font-family: "Playfair Display", serif;
   font-size: 4rem;
   letter-spacing: 2px;
   margin-bottom: 10px;
-  text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
 
 .hero-subtitle {
@@ -224,7 +232,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* Estructura ZIG-ZAG (CORREGIDA PARA QUE NO SE VEA UNO DEBAJO DE OTRO) */
+/* HISTORIA: Estilo Zig-Zag para Desktop */
 .story-section {
   padding: 80px 20px;
   background-color: #1a1a1a;
@@ -232,25 +240,23 @@ body {
 }
 
 .story-row {
-  display: flex;       /* Activa el layout horizontal */
-  flex-direction: row; /* Asegura que sea fila, no columna */
-  align-items: center; /* Centra verticalmente texto e imagen */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   gap: 60px;
   width: 100%;
-  margin-bottom: 120px; /* Separación entre bloques */
+  margin-bottom: 120px;
 }
 
-/* Invertir orden */
 .story-row.reverse {
   flex-direction: row-reverse;
 }
 
-/* Texto de Historia */
 .story-text {
-  flex: 1; /* Ocupa el 50% del espacio disponible */
-  min-width: 300px; /* Evita que se aplaste demasiado */
-  text-align: left; /* Alineación del texto a la izquierda para lectura */
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
 }
 
 .story-text h2 {
@@ -275,21 +281,23 @@ body {
   font-size: 1.1rem;
   line-height: 1.8;
   color: #ddd;
-  text-align: justify; /* Justificado elegante */
+  text-align: justify;
 }
 
-.story-text strong { color: #fff; font-weight: bold; }
+.story-text strong {
+  color: #fff;
+  font-weight: bold;
+}
 
-/* Imagen de Historia */
 .story-image {
-  flex: 1; /* Ocupa el otro 50% */
+  flex: 1;
   height: 400px;
-  width: 100%; /* Asegura que llene su contenedor flexible */
+  width: 100%;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   border: 1px solid #333;
-  background-color: #111; /* Fondo por si la imagen falla */
+  background-color: #111;
 }
 
 .story-image img {
@@ -304,7 +312,7 @@ body {
   transform: scale(1.05);
 }
 
-/* --- MODAL (POP-UP) --- */
+/* --- MODAL (POP-UP) ARREGLADO PARA MÓVIL --- */
 .modal {
   display: none;
   position: fixed;
@@ -314,9 +322,14 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+
+  /* ESCRITORIO: Centrado perfecto */
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(5px);
+
+  /* SOLUCIÓN SCROLL: Permitir scroll si el contenido es muy alto */
+  overflow-y: auto;
 }
 
 .modal-content {
@@ -328,12 +341,20 @@ body {
   position: relative;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
   animation: modalFadeIn 0.3s;
-  padding: 15px 25px; /* Padding ajustado como pediste */
+  padding: 15px 25px;
+  /* Margen automático arriba/abajo asegura que si hay scroll, no se pegue a los bordes */
+  margin: auto;
 }
 
 @keyframes modalFadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .close-btn {
@@ -348,7 +369,9 @@ body {
   transition: color 0.3s;
 }
 
-.close-btn:hover { color: #fff; }
+.close-btn:hover {
+  color: #fff;
+}
 
 .modal-body {
   display: flex;
@@ -388,21 +411,20 @@ body {
   color: #fff;
   margin-bottom: 10px;
 }
-
 .modal-price {
   font-size: 1.5rem;
   color: #d4af37;
   font-weight: bold;
   margin-bottom: 20px;
 }
-
 .modal-description {
   color: #ccc;
   margin-bottom: 30px;
   line-height: 1.6;
 }
-
-.modal-selectors { margin-bottom: 25px; }
+.modal-selectors {
+  margin-bottom: 25px;
+}
 
 .modal-selectors label {
   display: block;
@@ -410,7 +432,6 @@ body {
   color: #aaa;
   font-size: 0.9rem;
 }
-
 .modal-selectors select {
   width: 100%;
   padding: 10px;
@@ -433,8 +454,9 @@ body {
   border-radius: 5px;
   transition: background 0.3s;
 }
-
-.add-cart-btn:hover { background-color: #fff; }
+.add-cart-btn:hover {
+  background-color: #fff;
+}
 
 /* --- CARRITO FLOTANTE --- */
 .cart-icon {
@@ -455,9 +477,9 @@ body {
   z-index: 1000;
   transition: transform 0.2s;
 }
-
-.cart-icon:hover { transform: scale(1.1); }
-
+.cart-icon:hover {
+  transform: scale(1.1);
+}
 #cart-count {
   position: absolute;
   top: 0;
@@ -481,7 +503,6 @@ body {
   z-index: 1001;
   justify-content: flex-end;
 }
-
 .cart-content {
   background-color: #fff;
   width: 90%;
@@ -494,21 +515,26 @@ body {
   animation: slideIn 0.3s ease-out;
   color: #333;
 }
-
 @keyframes slideIn {
-  from { transform: translateX(100%); }
-  to { transform: translateX(0); }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
-
-.close-cart { align-self: flex-end; font-size: 28px; cursor: pointer; color: #333; }
-
+.close-cart {
+  align-self: flex-end;
+  font-size: 28px;
+  cursor: pointer;
+  color: #333;
+}
 .cart-items-container {
   flex-grow: 1;
   overflow-y: auto;
   margin-top: 20px;
   border-top: 1px solid #eee;
 }
-
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -516,49 +542,123 @@ body {
   padding: 10px 0;
   border-bottom: 1px solid #eee;
 }
-
-.item-info h4 { margin: 0; font-size: 16px; }
-.item-info span { font-size: 12px; color: #666; }
-.remove-item { color: red; cursor: pointer; font-size: 1.2rem; margin-left: 10px; }
-
-.cart-footer { margin-top: 20px; border-top: 2px solid #333; padding-top: 10px; }
-.total-row { display: flex; justify-content: space-between; font-size: 20px; font-weight: bold; margin-bottom: 15px; }
-
-.checkout-btn {
-  width: 100%; padding: 15px; background-color: #25d366; color: white; border: none; font-size: 18px; font-weight: bold; cursor: pointer; border-radius: 5px; margin-bottom: 10px;
+.item-info h4 {
+  margin: 0;
+  font-size: 16px;
 }
-.checkout-btn:hover { background-color: #128c7e; }
-
-.clear-btn { width: 100%; padding: 10px; background: transparent; border: 1px solid #ccc; color: #666; cursor: pointer; }
+.item-info span {
+  font-size: 12px;
+  color: #666;
+}
+.remove-item {
+  color: red;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+.cart-footer {
+  margin-top: 20px;
+  border-top: 2px solid #333;
+  padding-top: 10px;
+}
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+.checkout-btn {
+  width: 100%;
+  padding: 15px;
+  background-color: #25d366;
+  color: white;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+.checkout-btn:hover {
+  background-color: #128c7e;
+}
+.clear-btn {
+  width: 100%;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #666;
+  cursor: pointer;
+}
 
 /* --- RESPONSIVE GENERAL (TABLETS Y MOVILES) --- */
 @media (max-width: 900px) {
-  /* Textos grandes */
-  .category-title { font-size: 3rem; }
-  .hero-title { font-size: 2.5rem; }
-  .description-top { font-size: 1rem; margin-bottom: 25px; }
+  .category-title {
+    font-size: 3rem;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .description-top {
+    font-size: 1rem;
+    margin-bottom: 25px;
+  }
 
-  /* Grids de productos */
-  .product-grid-4col, .product-grid-3col {
+  /* Grids */
+  .product-grid-4col,
+  .product-grid-3col {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
-  /* MODAL */
-  .modal-content { padding: 15px; }
-  .modal-body { flex-direction: column; align-items: stretch; }
-  .modal-img-wrapper { height: 200px; }
-  .modal-details { padding: 20px; }
-  #modal-title { font-size: 1.5rem; }
+  /* ARREGLO DEL MODAL EN CELULAR */
+  .modal {
+    align-items: flex-start; /* IMPORTANTE: Alinea al inicio para que el top no se corte */
+    padding-top: 20px; /* Un poco de aire arriba */
+  }
+  .modal-content {
+    margin: 20px auto; /* Centrado con margen vertical para permitir scroll */
+    padding: 15px;
+  }
+  .modal-body {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .modal-img-wrapper {
+    height: 200px;
+  }
+  .modal-details {
+    padding: 20px 10px;
+  }
+  #modal-title {
+    font-size: 1.5rem;
+  }
 
-  /* HISTORIA (ZIG-ZAG SE VUELVE COLUMNA) */
-  .story-row, .story-row.reverse {
+  /* ARREGLO DE HISTORIA (SIEMPRE TEXTO -> IMAGEN) */
+  .story-row,
+  .story-row.reverse {
     flex-direction: column; /* Apilar verticalmente */
     gap: 30px;
     margin-bottom: 60px;
   }
-  
-  .story-image { height: 250px; }
-  .story-text h2 { text-align: center; }
-  .story-text h2::after { margin: 10px auto; }
+
+  /* AQUÍ ESTÁ LA MAGIA DEL ORDEN */
+  .story-row .story-text {
+    order: 1;
+    margin-bottom: 10px;
+  } /* Texto siempre primero */
+  .story-row .story-image {
+    order: 2;
+  } /* Imagen siempre segunda */
+
+  .story-image {
+    height: 250px;
+  }
+  .story-text h2 {
+    text-align: center;
+  }
+  .story-text h2::after {
+    margin: 10px auto;
+  }
 }
