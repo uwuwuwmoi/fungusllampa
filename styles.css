@@ -31,22 +31,20 @@ body {
 
 .nav-links a {
   color: #fff;
-  text-decoration: none; /* Ensures no default underlines */
+  text-decoration: none;
   font-weight: 500;
   text-transform: uppercase;
   font-size: 0.9rem;
   transition: color 0.3s ease;
 }
 
-/* Hover state: Changes color when mouse is over */
 .nav-links a:hover {
   color: #d4af37;
 }
 
-/* Active state: Keeps the current page link gold without the underline */
 .nav-links a.active {
   color: #d4af37;
-  border-bottom: none; 
+  border-bottom: none;
 }
 
 /* --- SECCIONES FULL SCREEN --- */
@@ -60,10 +58,9 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  padding: 100px 20px; /* Un poco más de espacio arriba */
+  padding: 100px 20px;
 }
 
-/* FONDOS */
 #clasicas {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("https://i.ibb.co/3mcJYKYn/Copia-de-Las-mejores-setas.png");
@@ -74,9 +71,19 @@ body {
     url("https://i.ibb.co/FbBPhm0M/Copia-de-Las-mejores-setas.jpg");
 }
 
+#chocohongos-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.ibb.co/FbBPhm0M/Copia-de-Las-mejores-setas.jpg");
+}
+
+#cepas-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://i.ibb.co/3mcJYKYn/Copia-de-Las-mejores-setas.png");
+}
+
 /* --- CONTENEDOR CENTRAL --- */
 .content-wrapper {
-  max-width: 1200px; /* Aumenté el ancho para que quepan 4 items */
+  max-width: 1200px;
   width: 100%;
   text-align: center;
 }
@@ -90,10 +97,7 @@ body {
 }
 
 .divider-line {
-  height: 2px;
-  width: 150px;
-  background-color: #fff;
-  margin: 0 auto 20px auto;
+  display: none;
 }
 
 .description-top {
@@ -104,20 +108,28 @@ body {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.9);
 }
 
-/* --- GRID DE 4 COLUMNAS --- */
+/* --- GRIDS DE PRODUCTOS --- */
 .product-grid-4col {
   display: grid;
-  /* Aquí forzamos 4 columnas iguales */
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
   margin: 0 auto;
 }
 
-/* --- TARJETAS --- */
+.product-grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* --- TARJETAS DE PRODUCTO --- */
 .product-item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 }
 
 .img-container {
@@ -137,30 +149,24 @@ body {
   transition: transform 0.3s;
 }
 
-/* CLASES DE ZOOM ESPECÍFICAS */
 .zoom-in img {
-  /* Acerca la imagen un 10% */
   transform: scale(1.1);
 }
-
 .zoom-out img {
-  /* Aleja la imagen un 10% */
   transform: scale(0.9);
 }
 
-/* Efecto hover general (opcional, si quieres que se muevan un poco más al pasar el mouse) */
 .img-container:hover img {
-  transform: scale(1.15); /* Crece un poco más al pasar el mouse */
+  transform: scale(1.15);
 }
 .zoom-out:hover img {
-  transform: scale(0.95); /* Ajuste suave para el zoom out */
+  transform: scale(0.95);
 }
 
-/* --- CAJA OSCURA DE TEXTO (Agrandada) --- */
+/* --- CAJA DE TEXTO OSCURA --- */
 .info-box {
   background-color: #383431;
   width: 100%;
-  /* Aumenté el padding vertical de 15px a 25px para hacerla más grande */
   padding: 25px 10px;
   text-align: center;
   border-radius: 0 0 10px 10px;
@@ -169,7 +175,7 @@ body {
 }
 
 .info-box h3 {
-  font-size: 1.15rem; /* Letra un pelín más grande */
+  font-size: 1.15rem;
   color: #fff;
   font-weight: 400;
   margin-bottom: 8px;
@@ -181,56 +187,58 @@ body {
   font-weight: 300;
 }
 
-/* Separador invisible entre secciones */
 .visual-divider {
   height: 50px;
 }
 
-/* --- RESPONSIVE (MÓVIL) --- */
+/* --- RESPONSIVE --- */
 @media (max-width: 900px) {
-  .product-grid-4col {
-    /* En tablets/móviles regresamos a 2x2 para que no se vean diminutas */
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-  }
-
   .category-title {
     font-size: 3rem;
   }
-
   .description-top {
     font-size: 1rem;
     margin-bottom: 25px;
   }
+  .product-grid-4col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 10px;
+  }
+  .product-grid-3col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 0 10px;
+  }
 }
-/* --- ESTILOS DEL MODAL (VENTANA EMERGENTE) --- */
 
-/* El fondo oscuro que cubre toda la pantalla */
+/* --- MODAL (ACTUALIZADO: Pseudomarco + Bordes Redondeados) --- */
 .modal {
-  display: none; /* Oculto por defecto */
+  display: none;
   position: fixed;
-  z-index: 2000; /* Encima de todo, incluso del navbar */
+  z-index: 2000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.85); /* Fondo negro semitransparente */
+  background-color: rgba(0, 0, 0, 0.85);
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(5px);
 }
 
-/* La caja del contenido */
 .modal-content {
   background-color: #222;
   border: 1px solid #444;
   width: 90%;
-  max-width: 800px;
-  border-radius: 15px;
+  max-width: 850px;
+  border-radius: 20px;
   position: relative;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
   animation: modalFadeIn 0.3s;
-  overflow: hidden;
+  
+  /* CAMBIO AQUÍ: Menos relleno arriba/abajo, mantenemos a los lados */
+  padding: 15px 25px; 
 }
 
 @keyframes modalFadeIn {
@@ -244,11 +252,10 @@ body {
   }
 }
 
-/* Botón de cerrar (X) */
 .close-btn {
   position: absolute;
-  top: 15px;
-  right: 20px;
+  top: 10px; /* Ajustado para el nuevo padding */
+  right: 15px; /* Ajustado para el nuevo padding */
   color: #aaa;
   font-size: 28px;
   font-weight: bold;
@@ -261,17 +268,22 @@ body {
   color: #fff;
 }
 
-/* Layout interno del modal */
 .modal-body {
   display: flex;
   flex-direction: row;
+  align-items: center; /* Mantiene el centrado vertical */
 }
 
-/* Imagen en el modal */
+/* IMG WRAPPER: Bordes redondeados DENTRO del marco */
 .modal-img-wrapper {
   flex: 1;
   background-color: #000;
-  height: 400px; /* Altura fija */
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px; /* Borde redondeado de la imagen */
+  overflow: hidden;    /* Recorta la imagen en las esquinas */
 }
 
 .modal-img-wrapper img {
@@ -280,14 +292,13 @@ body {
   object-fit: cover;
 }
 
-/* Detalles (Texto) */
 .modal-details {
   flex: 1;
   padding: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left; /* Alineado a la izquierda para leer mejor */
+  text-align: left;
 }
 
 #modal-title {
@@ -299,7 +310,7 @@ body {
 
 .modal-price {
   font-size: 1.5rem;
-  color: #d4af37; /* Dorado */
+  color: #d4af37;
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -310,7 +321,6 @@ body {
   line-height: 1.6;
 }
 
-/* Selectores */
 .modal-selectors {
   margin-bottom: 25px;
 }
@@ -332,7 +342,6 @@ body {
   outline: none;
 }
 
-/* Botón de acción */
 .add-cart-btn {
   background-color: #d4af37;
   color: #000;
@@ -350,31 +359,32 @@ body {
   background-color: #fff;
 }
 
-/* Responsive para el modal (Móvil) */
+/* Responsive Modal */
 @media (max-width: 700px) {
-  .modal-body {
-    flex-direction: column; /* En móvil, imagen arriba, texto abajo */
+  .modal-content {
+    padding: 15px; /* Marco más pequeño en celular para no perder espacio */
   }
-
+  .modal-body {
+    flex-direction: column;
+    align-items: stretch;
+  }
   .modal-img-wrapper {
     height: 200px;
   }
-
   .modal-details {
     padding: 20px;
   }
-
   #modal-title {
     font-size: 1.5rem;
   }
 }
 
-/* Botón flotante del carrito */
+/* --- CARRITO --- */
 .cart-icon {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #ff9800; /* Color llamativo */
+  background-color: #ff9800;
   color: white;
   width: 60px;
   height: 60px;
@@ -405,17 +415,16 @@ body {
   padding: 2px 6px;
 }
 
-/* Modal del Carrito */
 .cart-modal {
-  display: none; /* Oculto por defecto */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1001;
-  justify-content: flex-end; /* Alineado a la derecha */
+  justify-content: flex-end;
 }
 
 .cart-content {
@@ -428,6 +437,7 @@ body {
   display: flex;
   flex-direction: column;
   animation: slideIn 0.3s ease-out;
+  color: #333;
 }
 
 @keyframes slideIn {
@@ -453,7 +463,6 @@ body {
   border-top: 1px solid #eee;
 }
 
-/* Items individuales en el carrito */
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -466,7 +475,6 @@ body {
   margin: 0;
   font-size: 16px;
 }
-
 .item-info span {
   font-size: 12px;
   color: #666;
@@ -475,7 +483,7 @@ body {
 .remove-item {
   color: red;
   cursor: pointer;
-  font-weight: bold;
+  font-size: 1.2rem;
   margin-left: 10px;
 }
 
@@ -496,7 +504,7 @@ body {
 .checkout-btn {
   width: 100%;
   padding: 15px;
-  background-color: #25d366; /* Color WhatsApp */
+  background-color: #25d366;
   color: white;
   border: none;
   font-size: 18px;
@@ -517,4 +525,73 @@ body {
   border: 1px solid #ccc;
   color: #666;
   cursor: pointer;
+}
+
+/* --- NOSOTROS --- */
+#about-bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.unsplash.com/photo-1535581652167-3d6b98c36cd9?q=80&w=2070&auto=format&fit=crop");
+}
+
+.about-text-container {
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+.about-text-container strong {
+  color: #d4af37;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  margin-top: 50px;
+}
+
+.value-card {
+  background-color: rgba(56, 52, 49, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #444;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.value-card:hover {
+  transform: translateY(-10px);
+  border-color: #d4af37;
+}
+
+.value-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.value-card h3 {
+  font-family: "Playfair Display", serif;
+  color: #d4af37;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.value-card p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+@media (max-width: 800px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .about-text-container {
+    padding: 0 15px;
+    font-size: 1rem;
+  }
 }
