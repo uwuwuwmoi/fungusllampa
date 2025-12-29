@@ -1,100 +1,205 @@
 // --- CONFIGURACIÓN ---
-// Tu número de WhatsApp (formato internacional sin el +)
 const phoneNumber = "51966756553";
 
-// --- VARIABLES GLOBALES ---
-let cart = []; // Aquí guardaremos los productos
-let currentProduct = {}; // Producto seleccionado actualmente en el modal
+// --- DATOS DE VARIANTES (Lógica de Precios y Textos) ---
+const productVariants = {
+  // Lógica para CHOCOHONGOS
+  chocohongos: {
+    options: ["Cepa Clásica", "Cepa Exótica"],
+    details: {
+      "Cepa Clásica": {
+        priceMod: 0, // Precio base
+        text: "La opción ideal para empezar. Utilizamos genéticas como Golden Teacher o B+, conocidas por sus efectos equilibrados, risueños y de profunda conexión emocional sin ser abrumadores.",
+      },
+      "Cepa Exótica": {
+        priceMod: 15, // Suma 15 soles al precio base
+        text: "Para psiconautas que buscan más intensidad. Utilizamos genéticas híbridas o mutaciones (como Melmak o Jack Frost) que ofrecen una potencia visual superior y un viaje más profundo con la misma cantidad de chocolate.",
+      },
+    },
+  },
+  // Lógica para CEPAS
+  cepas: {
+    options: ["Cultura Líquida (LC)", "Grano (Spawn)", "Kit de Cultivo"],
+    details: {
+      "Cultura Líquida (LC)": {
+        fixedPrice: 70,
+        text: "Jeringa de 10ml con micelio vivo suspendido en solución nutritiva. Ideal para inocular tus propios frascos de grano estéril. Genética aislada en agar para máxima pureza.",
+      },
+      "Grano (Spawn)": {
+        fixedPrice: 90,
+        text: "Bolsa de 1kg de grano (trigo/maíz) totalmente colonizado por el micelio. Listo para mezclar con sustrato (fibra de coco) y fructificar. Ahorras semanas de trabajo.",
+      },
+      "Kit de Cultivo": {
+        fixedPrice: 180,
+        text: "La solución todo en uno. Incluye grano colonizado, sustrato estéril, caja de fructificación y manual. La forma más sencilla de cultivar tus propios hongos en casa sin laboratorio.",
+      },
+    },
+  },
+  // Lógica por defecto (Dosis)
+  default: {
+    options: ["Elige por mí (Recomendado)", "Elegir cepas en Whatsapp"],
+    details: {}, // Usa la descripción base del HTML
+  },
+};
 
-// --- FUNCIONES DEL MODAL DE PRODUCTO ---
+// --- VARIABLES GLOBALES ---
+let cart = JSON.parse(localStorage.getItem("magikCart")) || [];
+let currentProduct = {};
+
+// --- INICIALIZACIÓN ---
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartUI();
+});
+
+function saveCart() {
+  localStorage.setItem("magikCart", JSON.stringify(cart));
+}
+
+// --- FUNCIONES DEL MODAL ---
 
 function openModal(element) {
   const modal = document.getElementById("productModal");
+  const category = element.getAttribute("data-category") || "default";
 
-  // Guardamos los datos actuales para usarlos luego al añadir al carrito
+  // Guardamos datos base
   currentProduct = {
     name: element.getAttribute("data-name"),
-    priceText: element.getAttribute("data-price"), // El texto "S/.50"
-    // Convertimos el precio a número para poder sumar (quitamos "S/.")
-    priceValue: parseFloat(
+    basePrice: parseFloat(
       element.getAttribute("data-price").replace("S/.", "")
     ),
+    baseDesc: element.getAttribute("data-desc"), // Descripción original del HTML
     img: element.getAttribute("data-img"),
+    category: category,
   };
 
-  // Llenamos el modal visualmente
+  // Llenar datos visuales iniciales
   document.getElementById("modal-title").innerText = currentProduct.name;
-  document.getElementById("modal-price").innerText = currentProduct.priceText;
   document.getElementById("modal-img").src = currentProduct.img;
-  document.getElementById("modal-desc").innerText =
-    element.getAttribute("data-desc");
 
-  // Reseteamos el select de variedad a la primera opción
-  document.querySelector(".modal-selectors select").selectedIndex = 0;
+  // Configurar el Select (Dropdown)
+  setupVariantSelect(category);
 
-  // Mostramos el modal
   modal.style.display = "flex";
+}
+
+function setupVariantSelect(category) {
+  const select = document.getElementById("variant-select");
+  const label = document.getElementById("selector-label");
+  select.innerHTML = ""; // Limpiar opciones anteriores
+
+  let variantInfo = productVariants[category] || productVariants.default;
+
+  // Si es Dosis, ocultamos label específico o ponemos uno genérico
+  if (category === "default") {
+    label.innerText = "Variedad:";
+  } else if (category === "chocohongos") {
+    label.innerText = "Tipo de Genética:";
+  } else {
+    label.innerText = "Formato:";
+  }
+
+  // Crear las opciones del select
+  variantInfo.options.forEach((opt) => {
+    const optionElement = document.createElement("option");
+    optionElement.value = opt;
+    optionElement.innerText = opt;
+    select.appendChild(optionElement);
+  });
+
+  // Listener para cuando cambie la opción
+  select.onchange = () => updateModalDetails(category, select.value);
+
+  // Ejecutar una vez al inicio para poner el precio/texto correcto de la primera opción
+  updateModalDetails(category, select.value);
+}
+
+function updateModalDetails(category, selectedOption) {
+  const priceElement = document.getElementById("modal-price");
+  const descElement = document.getElementById("modal-desc");
+
+  // Lógica Dosis (Default)
+  if (category === "default") {
+    priceElement.innerText = "S/." + currentProduct.basePrice.toFixed(2);
+    descElement.innerHTML = currentProduct.baseDesc; // Usa el texto del HTML (que ya incluye el párrafo extra)
+    return;
+  }
+
+  // Lógica Chocohongos y Cepas
+  const details = productVariants[category].details[selectedOption];
+
+  if (details) {
+    // Calcular Precio
+    let finalPrice = 0;
+    if (details.fixedPrice) {
+      finalPrice = details.fixedPrice; // Precio fijo (Cepas)
+    } else {
+      finalPrice = currentProduct.basePrice + (details.priceMod || 0); // Precio base + modificador (Chocos)
+    }
+
+    // Actualizar UI
+    priceElement.innerText = "S/." + finalPrice.toFixed(2);
+
+    // Actualizar Descripción
+    // Para Chocohongos, mostramos la descripción base del producto + la explicación de la variante
+    if (category === "chocohongos") {
+      descElement.innerHTML = `<p>${currentProduct.baseDesc}</p><br><p><strong>Sobre tu elección:</strong> ${details.text}</p>`;
+    } else {
+      // Para Cepas, reemplazamos totalmente el texto según el formato (Kit vs LC)
+      descElement.innerHTML = details.text;
+    }
+
+    // Actualizamos el objeto global para cuando se añada al carrito
+    currentProduct.currentPrice = finalPrice;
+  }
 }
 
 function closeModal() {
   document.getElementById("productModal").style.display = "none";
 }
 
-// Cerramos si hacen clic fuera de la cajita blanca (en el fondo oscuro)
 window.onclick = function (event) {
   const productModal = document.getElementById("productModal");
   const cartModal = document.getElementById("cartModal");
-  if (event.target == productModal) {
-    productModal.style.display = "none";
-  }
-  if (event.target == cartModal) {
-    cartModal.style.display = "none";
-  }
+  if (event.target == productModal) productModal.style.display = "none";
+  if (event.target == cartModal) cartModal.style.display = "none";
 };
 
-// --- LÓGICA DEL CARRITO ---
-
-// 1. Añadir al carrito desde el botón del modal
+// --- AÑADIR AL CARRITO ---
 document.querySelector(".add-cart-btn").addEventListener("click", function () {
-  // Obtenemos la variedad seleccionada
-  const varietySelect = document.querySelector(".modal-selectors select");
-  const selectedVariety =
-    varietySelect.options[varietySelect.selectedIndex].text;
+  const select = document.getElementById("variant-select");
+  const selectedVariety = select.value;
 
-  // Creamos el item del pedido
+  // Usamos el precio calculado actualmente o el base si no hay cálculo
+  const priceToAdd = currentProduct.currentPrice || currentProduct.basePrice;
+
   const item = {
-    id: Date.now(), // ID único basado en la hora actual
+    id: Date.now(),
     name: currentProduct.name,
-    price: currentProduct.priceValue,
+    price: priceToAdd,
     variety: selectedVariety,
   };
 
-  // Lo metemos al array del carrito
   cart.push(item);
-
-  // Actualizamos todo y cerramos el modal
+  saveCart();
   updateCartUI();
   closeModal();
-
-  // Abrimos el carrito automáticamente para que vean que se guardó (opcional)
   toggleCart();
 });
 
-// 2. Abrir/Cerrar la ventana del Carrito
+// --- RESTO DEL CÓDIGO DEL CARRITO (Igual que antes) ---
 function toggleCart() {
   const cartModal = document.getElementById("cartModal");
   if (cartModal.style.display === "flex") {
     cartModal.style.display = "none";
   } else {
     cartModal.style.display = "flex";
-    renderCartItems(); // Dibujamos la lista al abrir
+    renderCartItems();
   }
 }
 
-// 3. Dibujar los items en el HTML del carrito
 function renderCartItems() {
   const container = document.getElementById("cart-items");
-  container.innerHTML = ""; // Limpiamos lo que había antes
+  container.innerHTML = "";
 
   if (cart.length === 0) {
     container.innerHTML = "<p class='empty-msg'>Tu carrito está vacío.</p>";
@@ -106,8 +211,6 @@ function renderCartItems() {
 
   cart.forEach((item) => {
     total += item.price;
-
-    // Creamos el HTML para cada producto en la lista
     const div = document.createElement("div");
     div.classList.add("cart-item");
     div.innerHTML = `
@@ -121,53 +224,42 @@ function renderCartItems() {
     container.appendChild(div);
   });
 
-  // Actualizar el Total final
   document.getElementById("cart-total").innerText = "S/." + total.toFixed(2);
 }
 
-// 4. Actualizar el numerito rojo del icono
 function updateCartUI() {
-  document.getElementById("cart-count").innerText = cart.length;
+  const countElement = document.getElementById("cart-count");
+  if (countElement) countElement.innerText = cart.length;
 }
 
-// 5. Eliminar un item específico (tacho de basura)
 function removeFromCart(id) {
   cart = cart.filter((item) => item.id !== id);
-  renderCartItems(); // Volver a dibujar la lista
-  updateCartUI(); // Actualizar contador
-}
-
-// 6. Vaciar todo el carrito
-function clearCart() {
-  cart = [];
+  saveCart();
   renderCartItems();
   updateCartUI();
 }
 
-// 7. ENVIAR PEDIDO A WHATSAPP (CHECKOUT)
+function clearCart() {
+  cart = [];
+  saveCart();
+  renderCartItems();
+  updateCartUI();
+}
+
 function sendToWhatsapp() {
   if (cart.length === 0) {
-    alert("El carrito está vacío, agrega productos primero.");
+    alert("El carrito está vacío.");
     return;
   }
-
-  // Inicio del mensaje
   let message = "Hola FungusLlampa, quiero realizar el siguiente pedido:%0A%0A";
   let total = 0;
-
-  // Recorremos el carrito para listar los productos
   cart.forEach((item, index) => {
     total += item.price;
-    // Formato: 1. Producto - Variedad (Precio)
     message += `${index + 1}. *${item.name}* - ${item.variety} (S/.${
       item.price
     })%0A`;
   });
-
-  // Agregamos el total y la pregunta final
   message += `%0A*TOTAL: S/.${total.toFixed(2)}*%0A%0A`;
   message += "¿Cuál es el método de pago?";
-
-  // Abrir WhatsApp en nueva pestaña
   window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank");
 }
