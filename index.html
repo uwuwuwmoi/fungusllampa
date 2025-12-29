@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Catálogo - Dosis MAGIK</title>
+    <title>Nosotros - MAGIK</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500&display=swap"
@@ -13,230 +13,79 @@
   <body>
     <nav class="navbar">
       <ul class="nav-links">
-        <li><a href="index.html" class="active">Dosis</a></li>
+        <li><a href="index.html" class="active">Nosotros</a></li>
+        <li><a href="Dosis.html">Dosis</a></li>
         <li><a href="chocohongos.html">Chocohongos</a></li>
-        <li><a href="kits.html">Kits</a></li>
         <li><a href="cepas.html">Cepas</a></li>
       </ul>
     </nav>
 
     <main>
-      <section id="clasicas" class="full-screen-section">
+      <section id="about-bg" class="full-screen-section">
         <div class="content-wrapper">
           <header class="section-header">
-            <h2 class="category-title">Clásicas</h2>
-            <div class="divider-line"></div>
+            <h2 class="category-title">El Origen</h2>
             <div class="description-top">
-              <p>
-                Puedes elegir entre nuestras variedades como Melmak, B+,
-                Makilla, pedirnos una mezcla de todas o permitir que elijamos
-                por ti. Cada cepa clásica tiene experiencias únicas.
-              </p>
+              <p>Donde la micología se encuentra con la alquimia moderna.</p>
             </div>
           </header>
 
-          <div class="product-grid-4col">
-            <article
-              class="product-item"
-              onclick="openModal(this)"
-              data-name="Microdosis 1.5g"
-              data-price="S/.50"
-              data-img="https://i.ibb.co/8L3LtvPd/6.png"
-              data-desc="Ideal para empezar. Mejora el enfoque y la creatividad sin efectos visuales fuertes."
-            >
-              <div class="img-container">
-                <img src="https://i.ibb.co/8L3LtvPd/6.png" alt="Microdosis" />
-              </div>
-              <div class="info-box">
-                <h3>Microdosis 1.5g</h3>
-                <p class="price">S/.50</p>
-              </div>
-            </article>
-
-            <article
-              class="product-item"
-              onclick="openModal(this)"
-              data-name="Personal 3g"
-              data-price="S/.80"
-              data-img="https://i.ibb.co/DfRkgnmh/waaa-1.png"
-              data-desc="La dosis perfecta para un viaje introspectivo completo y conexión profunda."
-            >
-              <div class="img-container">
-                <img
-                  src="https://i.ibb.co/DfRkgnmh/waaa-1.png"
-                  alt="Personal"
-                />
-              </div>
-              <div class="info-box">
-                <h3>Personal 3g</h3>
-                <p class="price">S/.80</p>
-              </div>
-            </article>
-
-            <article
-              class="product-item"
-              onclick="openModal(this)"
-              data-name="Doble 6g"
-              data-price="S/.130"
-              data-img="https://i.ibb.co/LzTZHBY1/5.png"
-              data-desc="Pack para compartir o para dos sesiones profundas. Ahorra llevando más."
-            >
-              <div class="img-container">
-                <img src="https://i.ibb.co/LzTZHBY1/5.png" alt="Doble" />
-              </div>
-              <div class="info-box">
-                <h3>Doble 6g</h3>
-                <p class="price">S/.130</p>
-              </div>
-            </article>
-
-            <article
-              class="product-item"
-              onclick="openModal(this)"
-              data-name="Oferta 9g"
-              data-price="S/.150"
-              data-img="https://i.ibb.co/mMchzrD/4.png"
-              data-desc="Nuestra mejor oferta. Abastecimiento para psiconautas experimentados."
-            >
-              <div class="img-container">
-                <img src="https://i.ibb.co/mMchzrD/4.png" alt="Oferta" />
-              </div>
-              <div class="info-box">
-                <h3>Oferta 9g</h3>
-                <p class="price">S/.150</p>
-              </div>
-            </article>
+          <div class="about-text-container">
+            <p>
+              En <strong>MAGIK</strong>, no solo cultivamos hongos; cultivamos
+              experiencias. Nacimos de la curiosidad por el reino Fungi y la
+              necesidad de ofrecer medicinas naturales de calidad superior en un
+              mercado informal. <br /><br />
+              Entendemos que un viaje introspectivo requiere confianza. Por eso,
+              hemos cambiado la incertidumbre por
+              <strong>ciencia y estandarización</strong>. Creemos en el poder de
+              la psilocibina para sanar, expandir la mente y reconectar con la
+              naturaleza.
+            </p>
           </div>
-        </div>
-      </section>
 
-      <div class="visual-divider"></div>
-
-      <section id="exoticas" class="full-screen-section">
-        <div class="content-wrapper">
-          <header class="section-header">
-            <h2 class="category-title">Exóticas</h2>
-            <div class="divider-line"></div>
-            <div class="description-top">
+          <div class="values-grid">
+            <div class="value-card">
+              <span class="value-icon">🔬</span>
+              <h3>Ciencia Estéril</h3>
               <p>
-                Nuestra línea Exótica ofrece genéticas con una potencia superior
-                y efectos visuales / introspectivos más intensos. Variedades
-                como Enigma, Natalensis o Melmak PE.
+                Nuestros cultivos se realizan en laboratorio bajo flujo laminar.
+                Garantizamos cero contaminantes y una genética aislada para
+                asegurar potencia constante.
               </p>
             </div>
-          </header>
 
-          <div class="product-grid-4col">
-            <article
-              class="product-item"
-              onclick="openModal(this)"
-              data-name="Exótica Micro 1.5g"
-              data-price="S/.60"
-              data-img="https://i.ibb.co/q3gk4rT8/7.png"
-              data-desc="Potencia superior en pequeñas dosis. Ideal para comenzar"
-            >
-              <div class="img-container">
-                <img
-                  src="https://i.ibb.co/q3gk4rT8/7.png"
-                  alt="Exotica Micro"
-                />
-              </div>
-              <div class="info-box">
-                <h3>Microdosis 1.5g</h3>
-                <p class="price">S/.60</p>
-              </div>
-            </article>
+            <div class="value-card">
+              <span class="value-icon">🍫</span>
+              <h3>Ingredientes Nobles</h3>
+              <p>
+                Para nuestros chocolates, utilizamos cacao orgánico peruano al
+                70%. Sin aditivos industriales, honrando la tierra de donde
+                venimos.
+              </p>
+            </div>
 
-            <article
-              class="product-item"
-              onclick="openModal(this)"
-              data-name="Exótica Personal 3g"
-              data-price="S/.95"
-              data-img="https://i.ibb.co/ZRPrQFkZ/1.png"
-              data-desc="Una dosis personal potente. Ideal para psiconautas que buscan mayor intensidad visual."
-            >
-              <div class="img-container zoom-in">
-                <img
-                  src="https://i.ibb.co/ZRPrQFkZ/1.png"
-                  alt="Exotica Personal"
-                />
-              </div>
-              <div class="info-box">
-                <h3>Personal 3g</h3>
-                <p class="price">S/.95</p>
-              </div>
-            </article>
+            <div class="value-card">
+              <span class="value-icon">👁️</span>
+              <h3>Comunidad & Privacidad</h3>
+              <p>
+                Tratamos cada pedido con absoluta discreción y respeto. Estamos
+                aquí para guiarte, ya sea tu primera microdosis o una ceremonia
+                profunda.
+              </p>
+            </div>
+          </div>
 
-            <article
-              class="product-item"
-              onclick="openModal(this)"
-              data-name="Exótica Doble 6g"
-              data-price="S/.160"
-              data-img="https://i.ibb.co/N4q8w2M/2.png"
-              data-desc="Pack doble de alta potencia. Perfecto para compartir una experiencia intensa."
-            >
-              <div class="img-container zoom-in">
-                <img src="https://i.ibb.co/N4q8w2M/2.png" alt="Exotica Doble" />
-              </div>
-              <div class="info-box">
-                <h3>Doble 6g</h3>
-                <p class="price">S/.160</p>
-              </div>
-            </article>
-
-            <article
-              class="product-item"
-              onclick="openModal(this)"
-              data-name="Exótica Oferta 9g"
-              data-price="S/.180"
-              data-img="https://i.ibb.co/vvQfbpKW/3.png"
-              data-desc="La mejor oferta en genética exótica. Abastecimiento completo."
-            >
-              <div class="img-container zoom-in">
-                <img
-                  src="https://i.ibb.co/vvQfbpKW/3.png"
-                  alt="Exotica Oferta"
-                />
-              </div>
-              <div class="info-box">
-                <h3>Oferta 9g</h3>
-                <p class="price">S/.180</p>
-              </div>
-            </article>
+          <div style="margin-top: 60px">
+            <a href="Dosis.html">
+              <button class="add-cart-btn" style="padding: 15px 40px">
+                Ver Catálogo
+              </button>
+            </a>
           </div>
         </div>
       </section>
     </main>
-
-    <div id="productModal" class="modal">
-      <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-
-        <div class="modal-body">
-          <div class="modal-img-wrapper">
-            <img id="modal-img" src="" alt="Producto" />
-          </div>
-
-          <div class="modal-details">
-            <h2 id="modal-title">Nombre del Producto</h2>
-            <p id="modal-price" class="modal-price">S/.00</p>
-            <p id="modal-desc" class="modal-description">
-              Descripción del producto aquí.
-            </p>
-
-            <div class="modal-selectors">
-              <label>Variedad:</label>
-              <select>
-                <option>Elige por mí (recomendado)</option>
-                <option>Elegir cepas en Whatsapp</option>
-              </select>
-            </div>
-
-            <button class="add-cart-btn">Añadir al Carrito</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="cart-icon" onclick="toggleCart()">
       🛒 <span id="cart-count">0</span>
@@ -246,11 +95,9 @@
       <div class="cart-content">
         <span class="close-cart" onclick="toggleCart()">&times;</span>
         <h2>Tu Pedido MAGIK</h2>
-
         <div id="cart-items" class="cart-items-container">
-          <p class="empty-msg">Tu carrito está vacío, ¡agrega algo mágico!</p>
+          <p class="empty-msg">Tu carrito está vacío.</p>
         </div>
-
         <div class="cart-footer">
           <div class="total-row">
             <span>Total:</span>
