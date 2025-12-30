@@ -9,12 +9,12 @@ body {
   background-color: #1a1a1a;
   color: #fff;
   font-family: "Roboto", sans-serif;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Evita scroll horizontal no deseado */
 }
 
-/* --- NAVBAR --- */
+/* --- NAVBAR (BARRA DE NAVEGACIÓN) --- */
 .navbar {
-  background-color: #000000; /* Negro sólido para legibilidad */
+  background-color: #000000; /* Color sólido para máxima legibilidad */
   position: fixed;
   width: 100%;
   top: 0;
@@ -44,12 +44,13 @@ body {
 .nav-links a:hover {
   color: #d4af37;
 }
+
 .nav-links a.active {
   color: #d4af37;
   border-bottom: none;
 }
 
-/* --- SECCIONES FULL SCREEN --- */
+/* --- SECCIONES FULL SCREEN (GENERAL) --- */
 .full-screen-section {
   min-height: 100vh;
   width: 100%;
@@ -63,6 +64,7 @@ body {
   padding: 100px 20px;
 }
 
+/* FONDOS ESPECÍFICOS */
 #clasicas {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("https://i.ibb.co/3mcJYKYn/Copia-de-Las-mejores-setas.png");
@@ -128,13 +130,18 @@ body {
   margin: 0 auto;
 }
 
-/* --- TARJETAS --- */
+/* --- TARJETAS DE PRODUCTO --- */
 .product-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
   width: 100%;
+  transition: transform 0.2s;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
 }
 
 .img-container {
@@ -145,7 +152,8 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   margin-bottom: -5px;
   z-index: 1;
-  background-color: #000;
+  background-color: #111;
+  position: relative;
 }
 
 .img-container img {
@@ -156,6 +164,7 @@ body {
   display: block;
 }
 
+/* EFECTOS ZOOM */
 .zoom-in img {
   transform: scale(1.1);
 }
@@ -169,6 +178,7 @@ body {
   transform: scale(0.95);
 }
 
+/* --- CAJA DE TEXTO OSCURA (TARJETAS) --- */
 .info-box {
   background-color: #383431;
   width: 100%;
@@ -188,15 +198,17 @@ body {
 
 .price {
   font-size: 1.4rem;
-  color: #fff;
+  color: #d4af37;
   font-weight: 300;
 }
+
 .visual-divider {
   height: 50px;
 }
 
 /* --- SECCIÓN NOSOTROS (FUNGUSLLAMPA) --- */
 
+/* Portada Hero */
 .about-hero {
   height: 60vh;
   width: 100%;
@@ -232,7 +244,7 @@ body {
   letter-spacing: 1px;
 }
 
-/* HISTORIA: Estilo Zig-Zag para Desktop */
+/* Estructura ZIG-ZAG (CORREGIDA) */
 .story-section {
   padding: 80px 20px;
   background-color: #1a1a1a;
@@ -241,7 +253,7 @@ body {
 
 .story-row {
   display: flex;
-  flex-direction: row;
+  flex-direction: row; /* Default: Texto Izq, Imagen Der */
   align-items: center;
   justify-content: space-between;
   gap: 60px;
@@ -249,10 +261,12 @@ body {
   margin-bottom: 120px;
 }
 
+/* En Desktop, .reverse invierte el orden a Imagen Izq, Texto Der */
 .story-row.reverse {
   flex-direction: row-reverse;
 }
 
+/* Texto de Historia */
 .story-text {
   flex: 1;
   min-width: 300px;
@@ -289,6 +303,7 @@ body {
   font-weight: bold;
 }
 
+/* Imagen de Historia */
 .story-image {
   flex: 1;
   height: 400px;
@@ -312,7 +327,7 @@ body {
   transform: scale(1.05);
 }
 
-/* --- MODAL (POP-UP) ARREGLADO PARA MÓVIL --- */
+/* --- MODAL (POP-UP) --- */
 .modal {
   display: none;
   position: fixed;
@@ -322,28 +337,22 @@ body {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(5px);
-
-  /* ESCRITORIO: Centrado perfecto */
   justify-content: center;
   align-items: center;
-
-  /* SOLUCIÓN SCROLL: Permitir scroll si el contenido es muy alto */
-  overflow-y: auto;
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
   background-color: #222;
   border: 1px solid #444;
   width: 90%;
-  max-width: 850px;
+  max-width: 900px;
   border-radius: 20px;
   position: relative;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
   animation: modalFadeIn 0.3s;
-  padding: 15px 25px;
-  /* Margen automático arriba/abajo asegura que si hay scroll, no se pegue a los bordes */
-  margin: auto;
+  padding: 0;
+  overflow: hidden;
 }
 
 @keyframes modalFadeIn {
@@ -359,14 +368,15 @@ body {
 
 .close-btn {
   position: absolute;
-  top: 5px;
+  top: 10px;
   right: 15px;
   color: #aaa;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
   cursor: pointer;
   z-index: 10;
   transition: color 0.3s;
+  text-shadow: 0 0 5px rgba(0,0,0,0.8);
 }
 
 .close-btn:hover {
@@ -376,26 +386,72 @@ body {
 .modal-body {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: stretch;
+  min-height: 400px;
 }
 
 .modal-img-wrapper {
-  flex: 1;
+  flex: 1.2;
   background-color: #000;
-  height: 350px;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
   overflow: hidden;
 }
 
-.modal-img-wrapper img {
+.modal-img-wrapper img.modal-static-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
+/* --- ESTILOS DEL CARRUSEL --- */
+.carousel-slide {
+  display: none;
+  animation: fade 0.4s;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+@keyframes fade {
+  from { opacity: 0.8; }
+  to { opacity: 1; }
+}
+
+.carousel-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.3s ease;
+  user-select: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  z-index: 5;
+}
+
+.carousel-btn.prev {
+  left: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.carousel-btn.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.carousel-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* --- DETALLES DEL MODAL --- */
 .modal-details {
   flex: 1;
   padding: 40px;
@@ -407,21 +463,26 @@ body {
 
 #modal-title {
   font-family: "Playfair Display", serif;
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #fff;
   margin-bottom: 10px;
 }
+
 .modal-price {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #d4af37;
   font-weight: bold;
   margin-bottom: 20px;
 }
+
 .modal-description {
   color: #ccc;
   margin-bottom: 30px;
   line-height: 1.6;
+  max-height: 200px;
+  overflow-y: auto;
 }
+
 .modal-selectors {
   margin-bottom: 25px;
 }
@@ -432,17 +493,47 @@ body {
   color: #aaa;
   font-size: 0.9rem;
 }
+
 .modal-selectors select {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   background-color: #333;
   color: #fff;
   border: 1px solid #555;
   border-radius: 5px;
   outline: none;
+  font-size: 1rem;
 }
 
+/* BOTÓN ESTÁNDAR (Usado en Cepas/Chocohongos) */
 .add-cart-btn {
+  background-color: #d4af37;
+  color: #000;
+  border: none;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+  margin-top: auto;
+  width: 100%;
+}
+
+.add-cart-btn:hover {
+  background-color: #f1c40f;
+}
+
+/* --- NUEVOS ESTILOS PARA Dosis.html (BOTONES MODAL) --- */
+.dose-buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.btn-dose-primary {
   background-color: #d4af37;
   color: #000;
   border: none;
@@ -453,9 +544,34 @@ body {
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.3s;
+  width: 100%;
+  text-align: center;
 }
-.add-cart-btn:hover {
-  background-color: #fff;
+
+.btn-dose-primary:hover {
+  background-color: #f1c40f;
+}
+
+.btn-dose-secondary {
+  background-color: transparent;
+  color: #d4af37;
+  border: 2px solid #d4af37;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+.btn-dose-secondary:hover {
+  background-color: #d4af37;
+  color: #000;
 }
 
 /* --- CARRITO FLOTANTE --- */
@@ -477,9 +593,11 @@ body {
   z-index: 1000;
   transition: transform 0.2s;
 }
+
 .cart-icon:hover {
   transform: scale(1.1);
 }
+
 #cart-count {
   position: absolute;
   top: 0;
@@ -503,6 +621,7 @@ body {
   z-index: 1001;
   justify-content: flex-end;
 }
+
 .cart-content {
   background-color: #fff;
   width: 90%;
@@ -515,6 +634,7 @@ body {
   animation: slideIn 0.3s ease-out;
   color: #333;
 }
+
 @keyframes slideIn {
   from {
     transform: translateX(100%);
@@ -523,18 +643,21 @@ body {
     transform: translateX(0);
   }
 }
+
 .close-cart {
   align-self: flex-end;
   font-size: 28px;
   cursor: pointer;
   color: #333;
 }
+
 .cart-items-container {
   flex-grow: 1;
   overflow-y: auto;
   margin-top: 20px;
   border-top: 1px solid #eee;
 }
+
 .cart-item {
   display: flex;
   justify-content: space-between;
@@ -542,6 +665,7 @@ body {
   padding: 10px 0;
   border-bottom: 1px solid #eee;
 }
+
 .item-info h4 {
   margin: 0;
   font-size: 16px;
@@ -556,6 +680,7 @@ body {
   font-size: 1.2rem;
   margin-left: 10px;
 }
+
 .cart-footer {
   margin-top: 20px;
   border-top: 2px solid #333;
@@ -568,6 +693,7 @@ body {
   font-weight: bold;
   margin-bottom: 15px;
 }
+
 .checkout-btn {
   width: 100%;
   padding: 15px;
@@ -583,6 +709,7 @@ body {
 .checkout-btn:hover {
   background-color: #128c7e;
 }
+
 .clear-btn {
   width: 100%;
   padding: 10px;
@@ -592,7 +719,7 @@ body {
   cursor: pointer;
 }
 
-/* --- RESPONSIVE GENERAL (TABLETS Y MOVILES) --- */
+/* --- RESPONSIVE GENERAL --- */
 @media (max-width: 900px) {
   .category-title {
     font-size: 3rem;
@@ -605,52 +732,45 @@ body {
     margin-bottom: 25px;
   }
 
-  /* Grids */
   .product-grid-4col,
   .product-grid-3col {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
 
-  /* ARREGLO DEL MODAL EN CELULAR */
-  .modal {
-    align-items: flex-start; /* IMPORTANTE: Alinea al inicio para que el top no se corte */
-    padding-top: 20px; /* Un poco de aire arriba */
-  }
+  /* MODAL */
   .modal-content {
-    margin: 20px auto; /* Centrado con margen vertical para permitir scroll */
-    padding: 15px;
+    flex-direction: column;
+    height: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 0;
   }
   .modal-body {
     flex-direction: column;
     align-items: stretch;
+    min-height: auto;
   }
   .modal-img-wrapper {
-    height: 200px;
+    height: 300px;
+    flex: none;
   }
   .modal-details {
-    padding: 20px 10px;
+    padding: 20px;
+    flex: none;
   }
   #modal-title {
     font-size: 1.5rem;
   }
 
-  /* ARREGLO DE HISTORIA (SIEMPRE TEXTO -> IMAGEN) */
+  /* HISTORIA (Index) - FIX DE FATIGA VISUAL */
+  /* En móvil, forzamos columna simple: Texto primero, luego Imagen */
   .story-row,
   .story-row.reverse {
-    flex-direction: column; /* Apilar verticalmente */
+    flex-direction: column;
     gap: 30px;
     margin-bottom: 60px;
   }
-
-  /* AQUÍ ESTÁ LA MAGIA DEL ORDEN */
-  .story-row .story-text {
-    order: 1;
-    margin-bottom: 10px;
-  } /* Texto siempre primero */
-  .story-row .story-image {
-    order: 2;
-  } /* Imagen siempre segunda */
 
   .story-image {
     height: 250px;
